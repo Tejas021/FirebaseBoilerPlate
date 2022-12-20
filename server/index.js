@@ -1,0 +1,17 @@
+const express = require("express");
+const taskRouter = require("./routes/TaskRoutes")
+const app = express();
+
+const cors = require("cors")
+app.use(cors())
+
+app.get("/",async(req,res)=>{
+
+res.send({"Name":"Tejas"})
+})
+
+
+app.use("/task",taskRouter)
+app.listen(3000,()=>{
+    console.log("connected");
+})
