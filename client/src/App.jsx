@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import axios from "axios"
 import './App.css'
-import Form from './components/Form'
-import Card from './components/Card'
+import {BrowserRouter as Router , Routes, Route} from "react-router-dom"
+import Home from './pages/Home'
+import Login from './pages/Login'
+
 
 function App() {
   
@@ -11,32 +13,13 @@ function App() {
   },[])
 
   return (
-    <div className='container'>
-
-
-
-    <h1 className='p-5 text-center'>Task Dashboard</h1>
-
-    <Form/>
-
-
-    <div className='d-flex p-5 flex-wrap justify-content-between '>
-    
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    
-    </div>
-
- 
-    </div>
+      <Router>
+      <Routes>
+      <Route exact path ="/" element = {<Home/>}/>
+      <Route path="login" element={<Login/>}/>
+     
+      </Routes>
+      </Router>
   )
 }
 
